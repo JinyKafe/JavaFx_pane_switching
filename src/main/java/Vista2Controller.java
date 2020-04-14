@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 /**
  * Controller class for the second vista.
  */
-public class Vista2Controller {
+public class Vista2Controller
+{
 
     /**
      * Event handler fired when the user requests a previous vista.
@@ -12,7 +13,8 @@ public class Vista2Controller {
      * @param event the event that triggered the handler.
      */
     @FXML
-    void previousPane(ActionEvent event) {
+    void previousPane(ActionEvent event)
+    {
         VistaNavigator.loadVista(VistaNavigator.VISTA_1);
     }
 

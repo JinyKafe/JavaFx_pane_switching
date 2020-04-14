@@ -9,18 +9,17 @@ import java.io.IOException;
 /**
  * Main application class.
  */
-public class Main extends Application {
+public class Main extends Application
+{
 
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws Exception
+    {
         stage.setTitle("Vista Viewer");
 
-        stage.setScene(
-            createScene(
-                loadMainPane()
-            )
-        );
-
+        Pane mainPane = loadMainPane();
+        Scene scene = createScene(mainPane);
+        stage.setScene(scene);
         stage.show();
     }
 
@@ -32,15 +31,10 @@ public class Main extends Application {
      * @return the loaded pane.
      * @throws IOException if the pane could not be loaded.
      */
-    private Pane loadMainPane() throws IOException {
+    private Pane loadMainPane() throws IOException
+    {
         FXMLLoader loader = new FXMLLoader();
-
-        Pane mainPane = (Pane) loader.load(
-            getClass().getResourceAsStream(
-                VistaNavigator.MAIN
-            )
-        );
-
+        Pane mainPane = loader.load(getClass().getResourceAsStream(VistaNavigator.MAIN));
         MainController mainController = loader.getController();
 
         VistaNavigator.setMainController(mainController);
@@ -53,22 +47,23 @@ public class Main extends Application {
      * Creates the main application scene.
      *
      * @param mainPane the main application layout.
-     *
      * @return the created scene.
      */
-    private Scene createScene(Pane mainPane) {
+    private Scene createScene(Pane mainPane)
+    {
         Scene scene = new Scene(
-            mainPane
+                mainPane
         );
 
         scene.getStylesheets().setAll(
-            getClass().getResource("vista.css").toExternalForm()
+                getClass().getResource("vista.css").toExternalForm()
         );
 
         return scene;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 }

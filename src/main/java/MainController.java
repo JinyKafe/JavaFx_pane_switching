@@ -5,9 +5,12 @@ import javafx.scene.layout.StackPane;
 /**
  * Main controller class for the entire layout.
  */
-public class MainController {
+public class MainController
+{
 
-    /** Holder of a switchable vista. */
+    /**
+     * Holder of a switchable vista.
+     */
     @FXML
     private StackPane vistaHolder;
 
@@ -16,7 +19,8 @@ public class MainController {
      *
      * @param node the vista node to be swapped in.
      */
-    public void setVista(Node node) {
+    public void setVista(Node node)
+    {
         vistaHolder.getChildren().setAll(node);
     }
 
