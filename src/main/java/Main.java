@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class Main extends Application
     private Pane loadMainPane() throws IOException
     {
         FXMLLoader loader = new FXMLLoader();
-        Pane mainPane = loader.load(getClass().getResourceAsStream(VistaNavigator.MAIN));
+        VBox mainPane = loader.load(getClass().getResourceAsStream(VistaNavigator.MAIN));
         MainController mainController = loader.getController();
 
         VistaNavigator.setMainController(mainController);
@@ -51,14 +52,8 @@ public class Main extends Application
      */
     private Scene createScene(Pane mainPane)
     {
-        Scene scene = new Scene(
-                mainPane
-        );
-
-        scene.getStylesheets().setAll(
-                getClass().getResource("vista.css").toExternalForm()
-        );
-
+        Scene scene = new Scene(mainPane);
+        scene.getStylesheets().setAll(getClass().getResource("vista.css").toExternalForm());
         return scene;
     }
 

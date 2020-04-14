@@ -1,3 +1,4 @@
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
@@ -7,7 +8,6 @@ import javafx.scene.layout.StackPane;
  */
 public class MainController
 {
-
     /**
      * Holder of a switchable vista.
      */
@@ -23,5 +23,4 @@ public class MainController
     {
         vistaHolder.getChildren().setAll(node);
     }
-
 }

@@ -1,5 +1,6 @@
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
@@ -55,8 +56,8 @@ public class VistaNavigator
     {
         try
         {
-            Node load = FXMLLoader.load(VistaNavigator.class.getResource(fxml));
-            mainController.setVista(load);
+            StackPane pane = FXMLLoader.load(VistaNavigator.class.getResource(fxml));
+            mainController.setVista(pane);
         } catch (IOException e)
         {
             e.printStackTrace();
