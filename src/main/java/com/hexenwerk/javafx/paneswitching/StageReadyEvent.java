@@ -1,4 +1,4 @@
-package com.hexenwerk.app;
+package com.hexenwerk.javafx.paneswitching;
 
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationEvent;

@@ -1,6 +1,5 @@
-package com.hexenwerk;
+package com.hexenwerk.javafx.paneswitching;
 
-import com.hexenwerk.app.SpringbootJavaFxApplication;
 import javafx.application.Application;
 import javafx.scene.Node;
 import net.rgielen.fxweaver.core.FxControllerAndView;
@@ -15,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 
 @SpringBootApplication
-public class JavafxWeaverSpringbootSampleApplication
+public class MainApp
 {
 
     public static void main(String[] args)

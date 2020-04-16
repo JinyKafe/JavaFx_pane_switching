@@ -4,6 +4,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.StackPane?>
-<StackPane fx:id="vista1" xmlns:fx="http://javafx.com/fxml" fx:controller="com.hexenwerk.app.Vista1Controller">
+<StackPane fx:id="vista1" xmlns:fx="http://javafx.com/fxml" fx:controller="com.hexenwerk.javafx.paneswitching.fx.Vista1Controller">
     <Button fx:id="nextButton" mnemonicParsing="false" text="Next Pane"/>
 </StackPane>

@@ -1,6 +1,5 @@
-package com.hexenwerk.app;
+package com.hexenwerk.javafx.paneswitching.fx;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -13,24 +12,24 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Controller class for the first vista.
+ * Controller class for the second vista.
  */
 @Component
-@FxmlView("vista1.fxml")
-public class Vista1Controller implements Initializable
+@FxmlView("vista2.fxml")
+public class Vista2Controller implements Initializable
 {
+
     @Autowired
     MainController mainController;
 
     @Autowired
-    private FxControllerAndView<Vista2Controller, StackPane> vista2_FX;
+    private FxControllerAndView<Vista1Controller, StackPane> vista1_FX;
 
-    @FXML
-    public Button nextButton;
+    public Button previousButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        nextButton.setOnAction(event -> mainController.setVista(vista2_FX.getView().get()));
+        previousButton.setOnAction(event -> mainController.setVista(vista1_FX.getView().orElseThrow()));
     }
 }

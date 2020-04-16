@@ -1,6 +1,5 @@
-package com.hexenwerk.app;
+package com.hexenwerk.javafx.paneswitching;
 
-import com.hexenwerk.JavafxWeaverSpringbootSampleApplication;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -28,7 +27,7 @@ public class SpringbootJavaFxApplication extends Application
                     context.registerBean(Parameters.class, this::getParameters); // for demonstration, not really needed
                 };
         this.context = new SpringApplicationBuilder()
-                .sources(JavafxWeaverSpringbootSampleApplication.class)
+                .sources(MainApp.class)
                 .initializers(initializer)
                 .run(getParameters().getRaw().toArray(new String[0]));
     }

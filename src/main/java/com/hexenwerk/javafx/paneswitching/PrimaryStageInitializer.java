@@ -1,5 +1,6 @@
-package com.hexenwerk.app;
+package com.hexenwerk.javafx.paneswitching;
 
+import com.hexenwerk.javafx.paneswitching.fx.MainController;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;

@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-        <groupId>net.rgielen</groupId>
-        <artifactId>javafx-weaver-samples</artifactId>
-        <version>1.3.0</version>
-	</parent>
-	<artifactId>javafx-weaver-springboot-sample</artifactId>
-	<name>javafx-weaver-springboot-sample</name>
+    <groupId>com.hexenwerk.javafx.paneswitching</groupId>
+    <artifactId>javafx-weaver-paneswitching</artifactId>
+	<name>javafx-weaver-paneswitching</name>
+    <version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<java.level>11</java.level>
+    <properties>
+		<javafx.version>14</javafx.version>
+        <java.level>13</java.level>
+        <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target>
+        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+        <javafx-weaver-spring.version>1.3.0</javafx-weaver-spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -56,16 +58,18 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
 
         <dependency>
             <groupId>net.rgielen</groupId>
             <artifactId>javafx-weaver-spring</artifactId>
-            <version>${project.version}</version>
+            <version>${javafx-weaver-spring.version}</version>
         </dependency>
 
     </dependencies>
