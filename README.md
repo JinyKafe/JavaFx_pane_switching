@@ -1,5 +1,6 @@
 # Pane switching in JavaFx (compared with and without Spring Boot)
-The application consist of the 
+The application demonstrates switching of two child panes inside one parent pane. 
+
 ![screenshot](doc/img/screenshot.gif)
 ## Solution: Java 8 without Spring Boot
 * You can find this solutin [under commit](https://github.com/JinyKafe/JavaFx_pane_switching/commit/c22b7ca54e80a0fc8dfdac326db801038890bfe7)
