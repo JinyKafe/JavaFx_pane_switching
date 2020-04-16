@@ -11,9 +11,6 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Controller class for the second vista.
- */
 @Component
 @FxmlView("vista2.fxml")
 public class Vista2Controller implements Initializable

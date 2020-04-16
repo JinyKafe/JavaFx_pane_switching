@@ -14,9 +14,6 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * com.hexenwerk.Main controller class for the entire layout.
- */
 @Component
 @FxmlView("main.fxml")
 public class MainController implements Initializable
