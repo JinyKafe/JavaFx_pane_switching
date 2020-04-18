@@ -38,7 +38,7 @@ public class MainController implements Initializable
         languageButton.setOnAction(event ->
         {
             stageBuilder.toggleLanguage();
-            String languageKey = stageBuilder.getLanguage() == Language.EN ? "main.button.language.cz" : "main.button.language.en";
+            String languageKey = stageBuilder.getLanguage() == Language.EN ? "main.button.language.en" : "main.button.language.cz";
             languageButton.setText(stageBuilder.getResourceBundle().getString(languageKey));
 
         });
