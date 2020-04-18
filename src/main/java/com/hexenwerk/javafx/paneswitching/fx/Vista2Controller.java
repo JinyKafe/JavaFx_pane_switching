@@ -1,9 +1,9 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
+import com.hexenwerk.javafx.paneswitching.Language;
+import com.hexenwerk.javafx.paneswitching.StageBuilder;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,18 +15,17 @@ import java.util.ResourceBundle;
 @FxmlView("vista2.fxml")
 public class Vista2Controller implements Initializable
 {
+    @Autowired
+    private StageBuilder stageBuilder;
 
     @Autowired
     MainController mainController;
-
-    @Autowired
-    private FxControllerAndView<Vista1Controller, StackPane> vista1_FX;
 
     public Button previousButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        previousButton.setOnAction(event -> mainController.setVista(vista1_FX.getView().orElseThrow()));
+        previousButton.setOnAction(event -> mainController.attachVistaPane(stageBuilder.getViewByController(Vista1Controller.class, Language.CZ)));
     }
 }

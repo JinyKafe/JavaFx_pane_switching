@@ -1,14 +1,12 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
+import com.hexenwerk.javafx.paneswitching.StageBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
@@ -18,11 +16,8 @@ import java.util.ResourceBundle;
 @FxmlView("main.fxml")
 public class MainController implements Initializable
 {
-    @Value("${spring.application.demo.greeting}")
-    private String greeting;
-
     @Autowired
-    private FxControllerAndView<Vista1Controller, StackPane> vista1_FX;
+    private StageBuilder stageBuilder;
 
     @FXML
     public Label headerLabel;
@@ -33,12 +28,11 @@ public class MainController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        headerLabel.setText(greeting);
-        setVista(vista1_FX.getView().orElseThrow());
+        attachVistaPane(stageBuilder.getViewByController(Vista1Controller.class));
     }
 
-    public void setVista(Node node)
+    public void attachVistaPane(StackPane stackPane)
     {
-        vistaHolder.getChildren().setAll(node);
+        vistaHolder.getChildren().setAll(stackPane);
     }
 }
