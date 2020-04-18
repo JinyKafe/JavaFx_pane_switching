@@ -1,6 +1,5 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
-import com.hexenwerk.javafx.paneswitching.Language;
 import com.hexenwerk.javafx.paneswitching.StageBuilder;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -26,6 +25,6 @@ public class Vista2Controller implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        previousButton.setOnAction(event -> mainController.attachVistaPane(stageBuilder.getViewByController(Vista1Controller.class, Language.CZ)));
+        previousButton.setOnAction(event -> mainController.attachVistaPane(stageBuilder.getViewByController(Vista1Controller.class)));
     }
 }

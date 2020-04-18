@@ -31,7 +31,7 @@ public class StageBuilder implements ApplicationListener<StageReadyEvent>
     @Autowired
     private FxWeaver fxWeaver;
 
-    private static Language APP_LANGUAGE = Language.EN;
+    private static Language LANGUAGE = Language.EN;
 
     private static Stage PRIMARY_STAGE;
 
@@ -47,13 +47,12 @@ public class StageBuilder implements ApplicationListener<StageReadyEvent>
 
     public <C, V extends Node> V getViewByController(Class<C> controllerClass)
     {
-        return getViewByController(controllerClass, getAppLanguage());
+        return getViewByController(controllerClass, getLanguage());
     }
 
     public <C, V extends Node> V getViewByController(Class<C> controllerClass, Language language)
     {
-        ResourceBundle resourceBundle = language == Language.EN ? this.resourceBundleEN : resourceBundleCZ;
-        return getViewByController(controllerClass, resourceBundle);
+        return getViewByController(controllerClass, getResourceBundle(language));
     }
 
     private <C, V extends Node> V getViewByController(Class<C> controllerClass, ResourceBundle resourceBundleEN)
@@ -62,14 +61,24 @@ public class StageBuilder implements ApplicationListener<StageReadyEvent>
         return Optional.of(view).orElseThrow(() -> new RuntimeException("Unable to load view for controller " + controllerClass));
     }
 
-    public static Language getAppLanguage()
+    public ResourceBundle getResourceBundle(Language language)
     {
-        return APP_LANGUAGE;
+        return language == Language.EN ? this.resourceBundleEN : resourceBundleCZ;
     }
 
-    public static void setAppLanguage(Language appLanguage)
+    public ResourceBundle getResourceBundle()
     {
-        APP_LANGUAGE = appLanguage;
+        return getLanguage() == Language.EN ? this.resourceBundleEN : resourceBundleCZ;
+    }
+
+    public Language getLanguage()
+    {
+        return LANGUAGE;
+    }
+
+    public void toggleLanguage()
+    {
+        LANGUAGE = LANGUAGE == Language.EN ? Language.CZ : Language.EN;
     }
 
     public static Stage getPrimaryStage()

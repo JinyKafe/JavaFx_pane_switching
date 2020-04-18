@@ -1,8 +1,10 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
+import com.hexenwerk.javafx.paneswitching.Language;
 import com.hexenwerk.javafx.paneswitching.StageBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -16,8 +18,12 @@ import java.util.ResourceBundle;
 @FxmlView("main.fxml")
 public class MainController implements Initializable
 {
+
     @Autowired
     private StageBuilder stageBuilder;
+
+    @FXML
+    public Button languageButton;
 
     @FXML
     public Label headerLabel;
@@ -28,6 +34,14 @@ public class MainController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
+        languageButton.setText(stageBuilder.getResourceBundle().getString("main.button.language.en"));
+        languageButton.setOnAction(event ->
+        {
+            stageBuilder.toggleLanguage();
+            String languageKey = stageBuilder.getLanguage() == Language.EN ? "main.button.language.cz" : "main.button.language.en";
+            languageButton.setText(stageBuilder.getResourceBundle().getString(languageKey));
+
+        });
         attachVistaPane(stageBuilder.getViewByController(Vista1Controller.class));
     }
 
