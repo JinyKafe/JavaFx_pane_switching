@@ -1,6 +1,7 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
 import com.hexenwerk.javafx.paneswitching.Language;
+import com.hexenwerk.javafx.paneswitching.SpringbootJavaFxApplication;
 import com.hexenwerk.javafx.paneswitching.StageBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +22,9 @@ public class MainController implements Initializable
 
     @Autowired
     private StageBuilder stageBuilder;
+
+    @Autowired
+    private SpringbootJavaFxApplication springbootJavaFxApplication;
 
     @FXML
     public Button languageButton;
