@@ -1,6 +1,6 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
-import com.hexenwerk.javafx.paneswitching.fx.service.StageBuilder;
+import com.hexenwerk.javafx.paneswitching.fx.service.SceneBuilder;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import net.rgielen.fxweaver.core.FxmlView;
@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 public class Vista2Controller implements Initializable
 {
     @Autowired
-    private StageBuilder stageBuilder;
+    private SceneBuilder sceneBuilder;
 
     @Autowired
     MainController mainController;
@@ -25,6 +25,6 @@ public class Vista2Controller implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        previousButton.setOnAction(event -> mainController.attachVistaPane(stageBuilder.getViewByController(Vista1Controller.class)));
+        previousButton.setOnAction(event -> mainController.attachVistaPane(sceneBuilder.getViewByController(Vista1Controller.class)));
     }
 }

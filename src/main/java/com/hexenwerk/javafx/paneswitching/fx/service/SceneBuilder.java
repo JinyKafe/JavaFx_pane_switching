@@ -1,8 +1,10 @@
 package com.hexenwerk.javafx.paneswitching.fx.service;
 
-import com.hexenwerk.javafx.paneswitching.fx.type.LanguageType;
 import com.hexenwerk.javafx.paneswitching.MainApp;
+import com.hexenwerk.javafx.paneswitching.fx.MainController;
+import com.hexenwerk.javafx.paneswitching.fx.type.LanguageType;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import net.rgielen.fxweaver.core.FxWeaver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,7 +14,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Component
-public class StageBuilder
+public class SceneBuilder
 {
     @Autowired
     @Qualifier("resourceBundleEN")
@@ -24,6 +26,13 @@ public class StageBuilder
 
     @Autowired
     private FxWeaver fxWeaver;
+
+    public Scene initMainScene()
+    {
+        Scene scene = new Scene(getViewByController(MainController.class), 400, 300);
+        scene.getStylesheets().setAll(getClass().getResource("/com/hexenwerk/javafx/paneswitching/vista.css").toExternalForm());
+        return scene;
+    }
 
     public <C, V extends Node> V getViewByController(Class<C> controllerClass)
     {

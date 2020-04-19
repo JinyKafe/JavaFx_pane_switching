@@ -1,10 +1,8 @@
 package com.hexenwerk.javafx.paneswitching;
 
-import com.hexenwerk.javafx.paneswitching.fx.MainController;
-import com.hexenwerk.javafx.paneswitching.fx.service.StageBuilder;
+import com.hexenwerk.javafx.paneswitching.fx.service.SceneBuilder;
 import com.hexenwerk.javafx.paneswitching.fx.type.LanguageType;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +16,7 @@ public class MainApp implements ApplicationListener<StageReadyEvent>
     private String greeting;
 
     @Autowired
-    private StageBuilder stageBuilder;
+    private SceneBuilder sceneBuilder;
 
     public static LanguageType LANGUAGE = LanguageType.EN;
 
@@ -37,9 +35,7 @@ public class MainApp implements ApplicationListener<StageReadyEvent>
     {
         PRIMARY_STAGE = event.stage;
         PRIMARY_STAGE.setTitle(greeting);
-        Scene scene = new Scene(stageBuilder.getViewByController(MainController.class), 400, 300);
-        scene.getStylesheets().setAll(getClass().getResource("vista.css").toExternalForm());
-        PRIMARY_STAGE.setScene(scene);
+        PRIMARY_STAGE.setScene(sceneBuilder.initMainScene());
         PRIMARY_STAGE.show();
     }
 
