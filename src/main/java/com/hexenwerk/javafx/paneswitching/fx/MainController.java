@@ -1,8 +1,8 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
-import com.hexenwerk.javafx.paneswitching.Language;
-import com.hexenwerk.javafx.paneswitching.SpringbootJavaFxApplication;
-import com.hexenwerk.javafx.paneswitching.StageBuilder;
+import com.hexenwerk.javafx.paneswitching.MainApp;
+import com.hexenwerk.javafx.paneswitching.fx.service.StageBuilder;
+import com.hexenwerk.javafx.paneswitching.fx.type.LanguageType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -23,9 +23,6 @@ public class MainController implements Initializable
     @Autowired
     private StageBuilder stageBuilder;
 
-    @Autowired
-    private SpringbootJavaFxApplication springbootJavaFxApplication;
-
     @FXML
     public Button languageButton;
 
@@ -41,8 +38,8 @@ public class MainController implements Initializable
         languageButton.setText(stageBuilder.getResourceBundle().getString("main.button.language.en"));
         languageButton.setOnAction(event ->
         {
-            stageBuilder.toggleLanguage();
-            String languageKey = stageBuilder.getLanguage() == Language.EN ? "main.button.language.en" : "main.button.language.cz";
+            MainApp.toggleLanguage();
+            String languageKey = MainApp.LANGUAGE == LanguageType.EN ? "main.button.language.en" : "main.button.language.cz";
             languageButton.setText(stageBuilder.getResourceBundle().getString(languageKey));
 
         });

@@ -1,6 +1,6 @@
 package com.hexenwerk.javafx.paneswitching.fx;
 
-import com.hexenwerk.javafx.paneswitching.StageBuilder;
+import com.hexenwerk.javafx.paneswitching.fx.service.StageBuilder;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import net.rgielen.fxweaver.core.FxmlView;
